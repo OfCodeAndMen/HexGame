@@ -1,7 +1,15 @@
 [package]
-name = "HexGame"
+name = "hex_game"
 version = "0.1.0"
 edition = "2024"
+
+[lib]
+name = "hex_game"
+path = "src/lib.rs"
+
+[[bin]]
+name = "hex_game"
+path = "src/main.rs"
 
 [dependencies]
 bevy = "0.18.0"

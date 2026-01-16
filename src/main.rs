@@ -1,13 +1,15 @@
 use bevy::prelude::*;
+use hex_game::editor::EditorPlugin;
 
 fn main() {
     App::new()
-        .add_plugins(DefaultPlugins)
-        .add_systems(Startup, setup)
+        .add_plugins(DefaultPlugins.set(WindowPlugin {
+            primary_window: Some(Window {
+                title: "HexGame Editor".to_string(),
+                ..default()
+            }),
+            ..default()
+        }))
+        .add_plugins(EditorPlugin)
         .run();
-}
-
-fn setup(mut commands: Commands) {
-    // Spawn a 2D camera
-    commands.spawn(Camera2d);
 }
